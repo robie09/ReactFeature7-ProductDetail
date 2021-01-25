@@ -1,12 +1,17 @@
 import { DetailWrapper } from "../styles";
+import products from "../products";
 
-const ProductDetail = () => {
+const ProductDetail = (props) => {
+  const productList = products.map((product) => (
+    <ProductDetail product={product} key={product.id} />
+  ));
+
   return (
     <DetailWrapper>
-      <h1>I should be a product name</h1>
-      <img src="I should be a product image" alt="I should be a product name" />
-      <p>I should be a product description</p>
-      <p>I should be a product price</p>
+      <h1>{props.product.name}</h1>
+      <img src={props.product.image} alt="I should be a producte" />
+      <p>{props.product.description}</p>
+      <p>{props.product.price}</p>
     </DetailWrapper>
   );
 };

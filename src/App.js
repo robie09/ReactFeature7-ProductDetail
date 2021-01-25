@@ -6,6 +6,7 @@ import Home from "./components/Home";
 import ProductList from "./components/ProductList";
 import { ThemeProvider } from "styled-components";
 import { useState } from "react";
+import productList from "./components/ProductDetail";
 
 const theme = {
   light: {
@@ -36,6 +37,7 @@ function App() {
       </ThemeButton>
       <Home />
       <ProductList />
+      {productList}
     </ThemeProvider>
   );
 }
