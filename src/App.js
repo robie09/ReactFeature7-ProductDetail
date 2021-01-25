@@ -7,7 +7,7 @@ import ProductList from "./components/ProductList";
 import { ThemeProvider } from "styled-components";
 import { useState } from "react";
 import ProductDetail from "./components/ProductDetail";
-//import product from "./products";
+import products from "./components/ProductItem";
 
 const theme = {
   light: {
@@ -26,15 +26,31 @@ const theme = {
 
 function App() {
   const [currentTheme, setCurrentTheme] = useState("light");
+  const [_products, setProducts] = useState(products);
+
   const [product, setProduct] = useState(null);
 
   const toggleTheme = () =>
     setCurrentTheme(currentTheme === "light" ? "dark" : "light");
 
+  const deleteProduct = (productid) => {
+    const selectedProducts = _products.filter(
+      (product) => product.id !== productid
+    );
+    setProducts(selectedProducts);
+  };
   const setView = product ? (
-    <ProductDetail product={product} setProduct={setProduct} />
+    <ProductDetail
+      product={product}
+      setProduct={setProduct}
+      deleteProduct={deleteProduct}
+    />
   ) : (
-    <ProductList setProduct={setProduct} />
+    <ProductList
+      setProduct={setProduct}
+      products={_products}
+      deleteProduct={deleteProduct}
+    />
   );
 
   return (
