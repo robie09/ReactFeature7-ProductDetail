@@ -13,7 +13,11 @@ const ProductList = (props) => {
   const productList = products
     .filter((product) => product.name.includes(query))
     .map((product) => (
-      <ProductItem product={props.setProduct} key={product.id} />
+      <ProductItem
+        setProduct={props.setProduct}
+        product={product}
+        key={product.id}
+      />
     ));
 
   return (

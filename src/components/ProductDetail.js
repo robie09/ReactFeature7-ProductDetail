@@ -1,4 +1,4 @@
-import { DetailWrapper } from "../styles";
+import { DetailWrapper, ThemeButton } from "../styles";
 import products from "../products";
 
 const ProductDetail = (props) => {
@@ -12,6 +12,10 @@ const ProductDetail = (props) => {
       <img src={props.product.image} alt="I should be a producte" />
       <p>{props.product.description}</p>
       <p>{props.product.price}</p>
+      <ThemeButton onClick={() => props.setProduct(null)}>
+        {" "}
+        back to Home
+      </ThemeButton>
     </DetailWrapper>
   );
 };
