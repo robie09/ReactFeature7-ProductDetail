@@ -7,7 +7,8 @@ import ProductList from "./components/ProductList";
 import { ThemeProvider } from "styled-components";
 import { useState } from "react";
 import ProductDetail from "./components/ProductDetail";
-import products from "./components/ProductItem";
+//import products from "./components/ProductItem";
+import products from "./products";
 
 const theme = {
   light: {
@@ -25,10 +26,9 @@ const theme = {
 };
 
 function App() {
+  const [product, setProduct] = useState(null);
   const [currentTheme, setCurrentTheme] = useState("light");
   const [_products, setProducts] = useState(products);
-
-  const [product, setProduct] = useState(null);
 
   const toggleTheme = () =>
     setCurrentTheme(currentTheme === "light" ? "dark" : "light");
